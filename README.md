@@ -174,3 +174,5 @@ By distributing intelligence across Snapdragon-powered devices, the system achie
 
 wget -r -np -nH --cut-dirs=2 -A "*.zip,*.csv" http://fenix.univ.rzeszow.pl/~mkepski/ds/
 
+https://www.kaggle.com/datasets/raghavnanjappan/weapon-dataset-for-yolov5?utm_source=chatgpt.com
+
