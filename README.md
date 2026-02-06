@@ -172,7 +172,15 @@ Final Note
 CampusGuard demonstrates that agentic AI does not require the cloud.
 By distributing intelligence across Snapdragon-powered devices, the system achieves real-time awareness, strong privacy, and scalable coordination — exactly what modern campuses need.
 
-wget -r -np -nH --cut-dirs=2 -A "*.zip,*.csv" http://fenix.univ.rzeszow.pl/~mkepski/ds/
-
-https://www.kaggle.com/datasets/raghavnanjappan/weapon-dataset-for-yolov5?utm_source=chatgpt.com
+Final Datasets 
+UCF-Crime – https://www.crcv.ucf.edu/projects/real-world/
+ShanghaiTech Campus – https://svip-lab.github.io/dataset/campus_dataset.html
+Roboflow Gun & Knife Detection – https://universe.roboflow.com/roboflow-100/guns
+People-With-Guns (Hugging Face) – https://huggingface.co/datasets/keremberke/people_with_guns
+CUHK Avenue – http://www.cse.cuhk.edu.hk/leojia/projects/detectabnormal/dataset.html
+Kaggle Weapon Dataset (Handguns + Knives) – https://www.kaggle.com/datasets/andrewmvd/weapon-detection
+PETS 2006 (Left Luggage) – https://www.idiap.ch/resource/pets2006/
+ABODA (Abandoned Objects) – https://github.com/abhijay9/Abandoned-Object-Detection
+CrowdHuman – https://www.crowdhuman.org/download.html
+MOT17 – https://motchallenge.net/data/MOT17.zip
 
