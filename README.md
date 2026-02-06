@@ -171,3 +171,6 @@ Adaptive policy learning
 Final Note
 CampusGuard demonstrates that agentic AI does not require the cloud.
 By distributing intelligence across Snapdragon-powered devices, the system achieves real-time awareness, strong privacy, and scalable coordination — exactly what modern campuses need.
+
+wget -r -np -nH --cut-dirs=2 -A "*.zip,*.csv" http://fenix.univ.rzeszow.pl/~mkepski/ds/
+
