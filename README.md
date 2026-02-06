@@ -173,6 +173,6 @@ CampusGuard demonstrates that agentic AI does not require the cloud.
 By distributing intelligence across Snapdragon-powered devices, the system achieves real-time awareness, strong privacy, and scalable coordination — exactly what modern campuses need.
 
 Final Datasets 
-https://universe.roboflow.com/mahad-ahmed/gun-and-knife-detection
-https://www.kaggle.com/datasets/raghavnanjappan/weapon-dataset-for-yolov5?utm_source=chatgpt.com
-
+1. https://universe.roboflow.com/mahad-ahmed/gun-and-knife-detection
+2. https://www.kaggle.com/datasets/raghavnanjappan/weapon-dataset-for-yolov5?utm_source=chatgpt.com
+3. https://www.crowdhuman.org/?utm_source=chatgpt.com
