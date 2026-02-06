@@ -291,3 +291,9 @@ image test
 webcam test
 
 where outputs are saved
+
+_____________________________________________________________________________________________________________________________________
+C:\Users\qc_de\Downloads\MOT17\MOT17 \n
+C:\Users\qc_de\Downloads\dataset\dataset\images \n
+C:\Users\qc_de\Downloads\Avenue_Dataset\Avenue Dataset \n
+C:\Users\qc_de\Downloads\coco-2017-DatasetNinja \n
