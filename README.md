@@ -176,3 +176,118 @@ Final Datasets
 1. https://universe.roboflow.com/mahad-ahmed/gun-and-knife-detection
 2. https://www.kaggle.com/datasets/raghavnanjappan/weapon-dataset-for-yolov5?utm_source=chatgpt.com
 3. https://www.crowdhuman.org/?utm_source=chatgpt.com
+4. -----------------------------------------------------------------------------------------------------------------------------------------------
+5. I’m building CampusGuard and I will NOT train YOLOv8 from scratch. I will use a pre-trained YOLOv8 ONNX model downloaded from Qualcomm AI Hub (Snapdragon 8 Elite / Snapdragon X Elite compatible), following the workflow in my PDF.
+
+My local workspace layout must match:
+
+CampusGuard_Models/
+  downloaded_models/
+    yolov8/
+      yolov8_person_detection.onnx   (this is the AI Hub export; already downloaded)
+  test_scripts/
+  documentation/
+  for_android/
+
+
+Goal
+
+Validate the AI Hub YOLOv8 ONNX model runs with onnxruntime on my machine
+
+Run it on an image or webcam frame
+
+Parse outputs into bounding boxes + confidence + class id
+
+Filter detections for person class ID = 0 (COCO) with threshold default 0.5
+
+Save an annotated output image and print timing (ms/frame)
+
+Generate a clean spec file documenting input/output tensor details like the PDF suggests
+
+Important constraints
+
+Use Python 3.10+
+
+Use: onnxruntime, opencv-python, numpy, pillow
+
+DO NOT use Ultralytics training APIs
+
+The model’s input format may be NCHW or NHWC depending on the AI Hub export — your code must detect the model input shape from the ONNX session and automatically adapt preprocessing to it.
+
+The model input size may be 640x640 (common), but do not assume — read it from ONNX input shape and handle dynamic shapes if present (fallback to 640).
+
+What you must generate
+
+A) CampusGuard_Models/test_scripts/test_yolov8_aihub.py
+
+CLI usage:
+
+--model ../downloaded_models/yolov8/yolov8_person_detection.onnx
+
+--image <path> OR --webcam 0
+
+--conf 0.5
+
+--save_dir ./out
+
+Steps:
+
+Load ONNX with onnxruntime
+
+Print input name, shape, dtype; print all output names/shapes
+
+Preprocess:
+
+resize (and letterbox if needed) to model input W,H
+
+normalize to [0,1] float32 unless model expects uint8/int8 (detect dtype and handle accordingly)
+
+convert to NCHW or NHWC based on model input shape
+
+Run inference and time it
+
+Postprocess:
+
+robustly decode YOLO-style outputs (handle common ONNX YOLO layouts)
+
+apply confidence threshold
+
+perform NMS (implement in numpy; do NOT rely on torchvision)
+
+filter class == 0 (person)
+
+Draw boxes + conf score on the image/frame and save
+
+For webcam mode: show FPS and allow quitting with ‘q’
+
+B) CampusGuard_Models/documentation/model_specs.txt auto-writer
+
+In the same script (or separate helper), write a file that records:
+
+Model file name + size
+
+Input tensor name/shape/format/dtype/range
+
+Output tensor names/shapes + what each output represents (best-effort)
+
+Recommended thresholds (conf=0.5, iou=0.45 default)
+
+C) CampusGuard_Models/for_android/README.txt
+
+Explain exactly which ONNX file to copy to app/src/main/assets/
+
+State preprocessing requirements (resize, normalize, NCHW/NHWC) based on what the script detects
+
+Robustness requirements
+
+If output decoding is ambiguous (varies by export), include a --debug flag that prints raw output tensor stats and shapes and saves them to a .npz so I can inspect.
+
+Make the code clean, non-chatgpt-ish, and practical for a hackathon team.
+
+Deliver the full code for all files and include the exact terminal commands to run:
+
+image test
+
+webcam test
+
+where outputs are saved
